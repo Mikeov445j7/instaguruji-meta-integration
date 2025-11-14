@@ -6,8 +6,8 @@ Complete Ionic Framework application with Meta Audience Network SDK integration 
 
 1. **Clone and Install**
    ```bash
-   git clone <your-repository-url>
-   cd instaguruji-app
+   git clone https://github.com/Mikeov445j7/instaguruji-meta-integration.git
+   cd instaguruji-meta-integration
    npm install
    ```
 
