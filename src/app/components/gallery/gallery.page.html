@@ -1,0 +1,43 @@
+<ion-header [translucent]="true" class="orange__theme_header">
+  <ion-toolbar class="toolbar__header">
+    <ion-buttons slot="start">
+      <ion-menu-button class="color-black"></ion-menu-button>
+    </ion-buttons>
+    <ion-title class="title" size="large">Gallery</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="background-white">
+  <ion-grid class="mt__64 mb__66">
+    <ng-container *ngIf="loader==1">
+      <div class="img__links">
+        <ng-container *ngFor="let o of List;let i = index;let last = last">
+          <div>
+            {{i+1}}. <a href="javascript:void(0);" (click)="onImageClick(o)">{{o.name}}</a>
+          </div>
+        </ng-container>
+      </div>
+      <!-- <div class="myGallery">
+        <ng-container *ngFor="let o of List;let i = index;">
+          <img [src]="o.url" />
+        </ng-container>
+      </div> -->
+    </ng-container>
+    <ng-container *ngIf="loader==0">
+      <div class="no_data_available">
+        Loading...
+      </div>
+    </ng-container>
+    <ng-container *ngIf="loader==-1">
+      <div class="no_data_available">
+        No data available
+      </div>
+    </ng-container>
+  </ion-grid>
+  <div class="gallery__modal" *ngIf="selectedImage">
+    <ion-icon class="close"  name="arrow-back-outline" (click)="onCloseImage()"></ion-icon>
+    <!-- <span class="close" (click)="onCloseImage()">&larr;</span> -->
+    <img class="gallery__modal_content" [src]="selectedImage.url" />
+    <div id="caption"></div>
+  </div>
+</ion-content>

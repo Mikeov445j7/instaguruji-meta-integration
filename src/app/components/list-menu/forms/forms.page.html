@@ -1,0 +1,50 @@
+<!-- <ng-container *ngFor="let one of menuList.typeOne; let i = index">
+  <ng-container>
+    <ion-col size="5" class="bb__col title__valign">
+      <mat-checkbox class="color-black" [(ngModel)]="checked">
+        {{one.name}}
+      </mat-checkbox>
+    </ion-col>
+    <ion-col size="7" class="bb__col">
+      <mat-form-field appearance="outline" class="color-black" style="width: 30%;">
+        <mat-label>Kg</mat-label>
+        <input matInput [(ngModel)]="kg" />
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="color-black" style="width: 30%;">
+        <mat-label>Gm</mat-label>
+        <input matInput [(ngModel)]="gm" />
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="color-black" style="width: 40%;">
+        <mat-label>Quantity</mat-label>
+        <input matInput [(ngModel)]="qty" />
+      </mat-form-field>
+    </ion-col>
+  </ng-container>
+</ng-container> -->
+<form [formGroup]="menuListFormGroup" autocomplete="off" area-autocomplete="off">
+  <ion-row>
+    <ng-container formArrayName="items" *ngFor="let one of menuListFormGroup.get('items')?.controls; let i = index">
+      <ng-container [formGroupName]="i">
+        <ion-col size="5" class="bb__col title__valign">
+          <mat-checkbox class="color-black" formControlName="checked">
+            {{one?.value?.name}}
+          </mat-checkbox>
+        </ion-col>
+        <ion-col size="7" class="bb__col">
+          <mat-form-field appearance="outline" class="color-black" style="width: 30%;">
+            <mat-label>Kg</mat-label>
+            <input matInput formControlName="kg" />
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="color-black" style="width: 30%;">
+            <mat-label>Gm</mat-label>
+            <input matInput formControlName="gm" />
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="color-black" style="width: 40%;">
+            <mat-label>Quantity</mat-label>
+            <input matInput formControlName="qty" />
+          </mat-form-field>
+        </ion-col>
+      </ng-container>
+    </ng-container>
+  </ion-row>
+</form>

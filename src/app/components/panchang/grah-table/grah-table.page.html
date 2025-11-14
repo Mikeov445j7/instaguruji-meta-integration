@@ -1,0 +1,28 @@
+<div class="grah_table">
+  <div class="grah_table_container" *ngFor="let o of content.data">
+    <div>
+      <b class="color-black" [innerHTML]="content.columns.grah"></b>
+      <span class="color-black" [innerHTML]="o.grah"></span>
+    </div>
+    <div>
+      <b class="color-black" [innerHTML]="content.columns.rashi"></b>
+      <span class="color-black" [innerHTML]="o.rashi"></span>
+    </div>
+    <div>
+      <b class="color-black" [innerHTML]="content.columns.bhaav"></b>
+      <span class="color-black" [innerHTML]="o.bhaav"></span>
+    </div>
+    <div>
+      <b class="color-black" [innerHTML]="content.columns.disha"></b>
+      <span class="color-black" [innerHTML]="o.disha"></span>
+    </div>
+    <div>
+      <b class="color-black" [innerHTML]="content.columns.gati"></b>
+      <span class="color-black" [innerHTML]="o.gati"></span>
+    </div>
+    <div>
+      <b class="color-black" [innerHTML]="content.columns.nakshtra"></b>
+      <span class="color-black" [innerHTML]="o.nakshtra"></span>
+    </div>
+  </div>
+</div>

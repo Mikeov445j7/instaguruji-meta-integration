@@ -1,0 +1,106 @@
+# Specifies intentionally untracked files to ignore when using Git
+# http://git-scm.com/docs/gitignore
+
+# Dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build outputs
+www/
+dist/
+.angular/
+
+# Android
+android/.gradle/
+android/app/build/
+android/build/
+android/gradle/
+android/local.properties
+
+# Keystores and certificates - CLIENT FILES ALLOWED
+# *.jks
+# *.keystore
+android/app/debug.keystore
+# android/app/release.keystore
+
+# Google Services (contiene claves API) - CLIENT FILES ALLOWED
+# google-services.json
+# android/app/google-services.json
+
+# Certificates - CLIENT FILES ALLOWED  
+# *.pem
+# upload_certificate.pem
+
+# Publish folder - CLIENT FILES ALLOWED
+# publish/
+
+# Private files
+ARCHIVOS_PRIVADOS_NO_SUBIR/
+
+*~
+*.sw[mnpcod]
+.tmp
+*.tmp
+*.tmp.*
+UserInterfaceState.xcuserstate
+$RECYCLE.BIN/
+
+*.log
+log.txt
+
+
+/.sourcemaps
+/.versions
+/coverage
+
+# Ionic
+/.ionic
+/www
+/platforms
+/plugins
+
+# Compiled output
+/dist
+/tmp
+/out-tsc
+/bazel-out
+
+# Node
+/node_modules
+npm-debug.log
+yarn-error.log
+
+# IDEs and editors
+.idea/
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-project
+*.sublime-workspace
+
+# Visual Studio Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/*
+
+
+# Miscellaneous
+/.angular
+/.angular/cache
+.sass-cache/
+/connect.lock
+/coverage
+/libpeerconnection.log
+testem.log
+/typings
+
+# System files
+.DS_Store
+Thumbs.db

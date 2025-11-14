@@ -1,0 +1,66 @@
+<ion-header [translucent]="true" class="orange__theme_header">
+  <ion-toolbar class="toolbar__header">
+    <ion-buttons slot="start">
+      <ion-menu-button class="color-black"></ion-menu-button>
+    </ion-buttons>
+    <ion-title class="title" size="large">Order Pooja</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="background-white">
+  <ion-grid class="mt-48 mb__72">
+    <form [formGroup]="formGroup" autocomplete="off" area-autocomplete="off">
+      <ion-row>
+        <ion-col size="12">&nbsp;</ion-col>
+        <ion-col size="12">
+          <mat-form-field appearance="outline" class="color-black">
+            <mat-label>First Name(नाव)</mat-label>
+            <input matInput formControlName="FirstName" />
+          </mat-form-field>
+        </ion-col>
+        <ion-col size="12">
+          <mat-form-field appearance="outline" class="color-black">
+            <mat-label>Last Name(आडनाव)</mat-label>
+            <input matInput formControlName="LastName" />
+          </mat-form-field>
+        </ion-col>
+        <ion-col size="12">
+          <mat-form-field appearance="outline" class="color-black">
+            <mat-label>Mobile No(मोबाइल नं.)</mat-label>
+            <input matInput formControlName="MobileNo" />
+          </mat-form-field>
+        </ion-col>
+        <ion-col size="12">
+          <mat-form-field appearance="outline" class="color-black">
+            <mat-label>Address(पत्ता)</mat-label>
+            <textarea matInput rows="3" cols="40" formControlName="Address"></textarea>
+          </mat-form-field>
+        </ion-col>
+        <ion-col size="12">
+          <b class="color-black">Choose an event for which you want to order</b>
+        </ion-col>
+        <ion-col size="12" formArrayName="Events"
+          *ngFor="let event of formGroup.get('Events')['controls']; let i = index">
+          <ng-container>
+            <mat-checkbox class="color-black fs__18" [formControlName]="i">
+              {{eventList[i].name}}
+            </mat-checkbox>
+          </ng-container>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12">
+          &nbsp;
+        </ion-col>
+        <ion-col size="12" class="ion-no-padding">
+          &nbsp;
+        </ion-col>
+      </ion-row>
+    </form>
+  </ion-grid>
+  <div class="bottom__btn width-100">
+    <button [disabled]="formGroup.invalid||buttonConfig.disable"
+      class="width-100 color-black  bg-orange button__height_50" mat-raised-button type="button"
+      (click)="onSubmit()">{{buttonConfig.text}}</button>
+  </div>
+</ion-content>

@@ -1,0 +1,26 @@
+<ion-header [translucent]="true" class="orange__theme_header">
+  <ion-toolbar class="toolbar__header">
+    <ion-buttons slot="start">
+      <ion-menu-button class="color-black"></ion-menu-button>
+    </ion-buttons>
+    <ion-title class="title" size="large">Youtube</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="background-white">
+  <ion-grid class="mt__64 mb__66 my_youtube">
+    <h2 *ngIf="loader" class="color-black">Please wait data is loading..</h2>
+    <h2 *ngIf="!loader && List.length==0" class="color-black">No data found</h2>
+    <div class="auto-resizable-iframe">
+      <ng-container *ngFor="let o of List">
+        <div>
+          <iframe width="560" height="315" [src]="o.url" title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+          <span class="color-black youtube__title">{{o.name}}</span>
+        </div>
+      </ng-container>
+    </div>
+
+  </ion-grid>
+</ion-content>

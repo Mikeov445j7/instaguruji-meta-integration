@@ -1,0 +1,15 @@
+Step 1 - Open command prompt with administrator
+Step 2 - Go to java bin path C:\Program Files\Java\jdk-15.0.2\bin
+
+replace your alias name with instaguruji
+
+Step 3 - keytool -genkeypair -alias instaguruji -keyalg RSA -keysize 2048 -validity 9125 -keystore keystore.jks
+
+Enter Password for the first time: India@1234
+
+
+*************************************************************
+Generate pem file if you lost your keystore file 
+
+C:\Program Files\Java\jdk-15.0.2\bin>
+keytool -export -rfc -alias instaguruji -file upload_certificate.pem -keystore keystore.jks

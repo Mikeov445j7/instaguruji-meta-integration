@@ -1,0 +1,47 @@
+.list__menu {
+    .title {
+        text-align: center;
+        font-size: 20px;
+        font-weight: 700;
+        color: #6e6456;
+    }
+    .name_template {
+        line-height: 2;
+        color: black;
+        --color: black;
+    }
+    .bb__col {
+        border-bottom: 1px solid #b7abab;
+    }
+    .input_with_label {
+        display: flex;
+        flex-direction: column;
+        .span_label {
+            position: absolute;
+            margin-left: 0.3rem;
+            background: white;
+            padding: 0 5px;
+            margin-top: -6px;
+            font-size: 12px;
+        }
+    }
+    .input_control {
+        height: 32px;
+        background-color: white;
+        --background-color: white;
+        line-height: 1.8;
+    }
+    .input_control:focus {
+        box-shadow: none;
+        border-color: #f1b75a;
+        --border-color: #f1b75a;
+    }
+    .title__valign {
+        display: flex;
+        align-items: center;
+    }
+    .space__between {
+        display: flex;
+        gap: 3px;
+    }
+}

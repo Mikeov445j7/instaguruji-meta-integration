@@ -1,0 +1,50 @@
+<ion-header [translucent]="true" class="orange__theme_header">
+  <ion-toolbar class="toolbar__header">
+    <ion-buttons slot="start">
+      <ion-menu-button class="color-black"></ion-menu-button>
+    </ion-buttons>
+    <ion-title class="title" size="large">About Us</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="background-white">
+
+  <ion-grid class="mt-48 mb__66">
+    <div style="text-align: center;">
+      <img src="assets/logo.png" style="height: 150px; width: 200px;" />
+    </div>
+    <div>
+      <img src="assets/about_us.jpg" style="width: 100%;height: auto;" />
+    </div>
+    <p class="color-black" [innerHTML]="content">
+
+    </p>
+    <div class="mb-10">
+      <a href="mailto:test@test.com" class="icon_with__label">
+        <ion-icon name="mail" class="icon orange__light"></ion-icon>
+        <span class="text">sandeshskulkarni@gmail.com</span>
+      </a>
+    </div>
+    <div class="mb-10">
+      <a href="tel:+91-9022943590" class="icon_with__label">
+        <ion-icon name="call" class="blue__light"></ion-icon>
+        <span class="text">9022943590</span>
+      </a>
+    </div>
+    <div>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3770.270312423163!2d73.00593071421302!3d19.09579385631387!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c17a5fc42b53%3A0x76990996f319ac30!2sInstaGuruji!5e0!3m2!1sen!2sin!4v1658921764329!5m2!1sen!2sin"
+        width="400" height="400" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    <hr />
+    <div class="social__icons">
+      <h4 class="color-black">
+        Social Connect
+      </h4>
+      <ion-icon class="font-48 facebook__color" name="logo-facebook" (click)="facebookClick()"></ion-icon>
+      <ion-icon class="font-48 instagram__color" name="logo-instagram" (click)="instagramClick()"></ion-icon>
+      <ion-icon class="font-48 whatsapp__color" name="logo-whatsapp" (click)="whatsappClick()"></ion-icon>
+    </div>
+  </ion-grid>
+</ion-content>

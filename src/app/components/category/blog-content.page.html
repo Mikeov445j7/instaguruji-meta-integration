@@ -1,0 +1,50 @@
+<ion-header translucent="true" class="cream__theme_header">
+  <ion-toolbar class="toolbar__header ion-no-border">
+    <ion-buttons slot="start">
+      <ion-back-button icon="chevron-back-circle" class="color-black font-35"></ion-back-button>
+    </ion-buttons>
+    <ion-title isEllipsisActive class="title" size="large">
+      <span class="title ios-overflow-title">
+        {{title}}
+      </span>
+    </ion-title>
+    <ion-icon class="font-30" slot="end" name="settings" ios="ios-settings" id="open-modal">
+    </ion-icon>
+    <ion-buttons slot="end">
+      <ion-menu-button class="color-black font-30"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="cream__theme_content content__page" [fullscreen]="true">
+  <!-- <app-pull-refresher loaderText="Category" (pullToRefresh)="onRefresh($event)"></app-pull-refresher> -->
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12">
+        <div class="color-black content__text {{'content__text-'+ fontSize}}" [innerHTML]="content"></div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-modal class="ion-modal" #modal trigger="open-modal">
+    <ng-template>
+      <ion-content class="background-white">
+        <ion-toolbar>
+          <ion-title>Settings</ion-title>
+          <ion-buttons slot="end">
+            <ion-button color="light" (click)="modal.dismiss()">Close</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+        <div class="fab__button">
+          <div class="label">Font Size: </div>
+          <div class="content">
+            <ion-range class="ion-range" min="16" max="30" [value]="fontSize" pin="true"
+              (ionKnobMoveEnd)="onRangeChange($event)">
+              <ion-icon slot="start" class="font-30" name="remove-circle-outline"></ion-icon>
+              <ion-icon slot="end" class="font-30" name="add-circle-outline"></ion-icon>
+            </ion-range>
+          </div>
+        </div>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+</ion-content>

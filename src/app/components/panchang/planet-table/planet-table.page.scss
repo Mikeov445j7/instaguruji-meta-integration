@@ -1,0 +1,22 @@
+.planet {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+    &_container {
+        background: url(/assets/category.png) 0 0/100% 100% no-repeat;
+        box-shadow: 0 10px 6px -6px #6c6868;
+        -webkit-box-shadow: 0 10px 6px -6px #6c6868;
+        color: #9a4d00;
+        border-radius: 1rem;
+        padding: 0.6rem 1rem;
+        div {
+            display: flex;
+            b {
+                width: 6rem;
+            }
+            span {
+                flex: 1;
+            }
+        }
+    }
+}

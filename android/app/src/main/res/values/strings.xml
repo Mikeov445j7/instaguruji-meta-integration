@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">InstaGuruji - पं संदेश सु. कुलकर्णी</string>
+    <string name="title_activity_main">InstaGuruji - पं संदेश सु. कुलकर्णी</string>
+    <string name="package_name">com.indiakhel.dharmik</string>
+    <string name="custom_url_scheme">com.indiakhel.dharmik</string>
+    <string name="admob_app_id">ca-app-pub-1294952354367897~2474441400</string>
+</resources>

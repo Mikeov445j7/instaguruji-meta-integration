@@ -1,0 +1,40 @@
+<div class="planet">
+  <div class="planet_container" *ngFor="let o of content.data">
+    <div>
+      <b class="color-black" [innerHTML]="content.columns.planet"></b>
+      <span class="color-black" [innerHTML]="o.planet"></span>
+    </div>
+    <div>
+      <b class="color-black" [innerHTML]="content.columns.longitude"></b>
+      <span class="color-black" [innerHTML]="o.longitude"></span>
+    </div>
+    <div>
+      <b class="color-black" [innerHTML]="content.columns.longitudeSpeed"></b>
+      <span class="color-black" [innerHTML]="o.longitudeSpeed"></span>
+    </div>
+    <div>
+      <b class="color-black" [innerHTML]="content.columns.latitude"></b>
+      <span class="color-black" [innerHTML]="o.latitude"></span>
+    </div>
+    <div>
+      <b class="color-black" [innerHTML]="content.columns.latitudeSpeed"></b>
+      <span class="color-black" [innerHTML]="o.latitudeSpeed"></span>
+    </div>
+    <div>
+      <b class="color-black" [innerHTML]="content.columns.distance"></b>
+      <span class="color-black" [innerHTML]="o.distance"></span>
+    </div>
+    <div>
+      <b class="color-black" [innerHTML]="content.columns.distanceSpeed"></b>
+      <span class="color-black" [innerHTML]="o.distanceSpeed"></span>
+    </div>
+    <div>
+      <b class="color-black" [innerHTML]="content.columns.rise"></b>
+      <span class="color-black" [innerHTML]="o.rise"></span>
+    </div>
+    <div>
+      <b class="color-black" [innerHTML]="content.columns.set"></b>
+      <span class="color-black" [innerHTML]="o.set"></span>
+    </div>
+  </div>
+</div>

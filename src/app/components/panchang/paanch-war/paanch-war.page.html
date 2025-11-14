@@ -1,0 +1,30 @@
+<ng-container *ngIf="content">
+
+  <div class="div__panchwar" *ngIf="type=='war'">
+    <b>{{content.title}}</b>{{content.name}}
+    <div>
+      <b>{{content.str[0]}}</b>{{content.from.day}}-{{content.from.time}} &nbsp;&nbsp;&nbsp;&nbsp;
+      <b>{{content.str[1]}}</b>{{content.to.day}}-{{content.to.time}}
+    </div>
+  </div>
+
+
+  <div class="div__panchwar" *ngIf="type!=='war'">
+    <b>{{content.title}}</b>
+    <span>{{content.count}}</span>
+    <span>{{content.name}}</span>
+    <b>{{content.spent.title}}</b>
+    <span [innerHTML]="content.spent.degree"></span>
+    <span>{{content.spent.time}}</span>
+    <div>
+      <b>{{content.totalTime.title}}</b>
+      <span>{{content.totalTime.time}}</span>
+      <span [innerHTML]="content.totalTime.degree"></span>
+    </div>
+    <div>
+      <b>{{content.str[0]}}</b>{{content.from.day}}-{{content.from.time}}
+      &nbsp;&nbsp;&nbsp;&nbsp;
+      <b>{{content.str[1]}}</b>{{content.to.day}}-{{content.to.time}}
+    </div>
+  </div>
+</ng-container>

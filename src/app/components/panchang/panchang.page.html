@@ -1,0 +1,119 @@
+<ion-header [translucent]="true" class="orange__theme_header">
+  <ion-toolbar class="toolbar__header">
+    <ion-buttons slot="start">
+      <ion-menu-button class="color-black"></ion-menu-button>
+    </ion-buttons>
+    <ion-title class="title" size="large">Panchang</ion-title>
+    <ion-icon class="font-30 ellipsis-vertical" slot="end" name="location-sharp" (click)="onCitySearch()">
+    </ion-icon>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="bg-orange">
+  <div class="panchang__datepicker">
+    <a (click)="setLabelDate(-1)">
+      <ion-icon name="chevron-back-outline"></ion-icon>
+    </a>
+    <div class="div__label">
+      <label class="color-black" (click)="picker.open()">
+        {{dateLabel| date: 'd MMMM y hh:mm a'}}
+      </label>
+      <mat-form-field>
+        <input matInput [ngxMatDatetimePicker]="picker" placeholder="Choose a date" [formControl]="calenderFormControl"
+          [attr.disabled]="calenderConfig.disabled" (dateChange)="onDateChanges($event)">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <ngx-mat-datetime-picker class="color-black" #picker [enableMeridian]="calenderConfig.enableMeridian"
+          [touchUi]="calenderConfig.touchUi">
+          <ngx-mat-datepicker-actions>
+            <button mat-button ngxMatDatepickerCancel>Cancel</button>
+            <button mat-raised-button color="primary" ngxMatDatepickerApply>Set</button>
+          </ngx-mat-datepicker-actions>
+        </ngx-mat-datetime-picker>
+      </mat-form-field>
+
+
+
+    </div>
+    <a (click)="setLabelDate(1)">
+      <ion-icon name="chevron-forward-outline"></ion-icon>
+    </a>
+  </div>
+  <br />
+  <br />
+  <br />
+  <br />
+  <ion-grid class="mt-48 mb__66">
+    <ng-container *ngIf="content">
+
+      <div class="panchang__header">
+        <div>
+          <b class="color-black" [innerHTML]="content.sthaan.label"></b>
+          <span class="color-black" [innerHTML]="content.sthaan.value"></span>
+        </div>
+        <div>
+          <b class="color-black" [innerHTML]="content.akshansh.label"></b>
+          <span class="color-black" [innerHTML]="content.akshansh.value"></span>
+        </div>
+        <div>
+          <b class="color-black" [innerHTML]="content.deshantar.label"></b>
+          <span class="color-black" [innerHTML]="content.deshantar.value"></span>
+        </div>
+        <div>
+          <b class="color-black" [innerHTML]="content.vartmaan.label"></b>
+          <span class="color-black" [innerHTML]="content.vartmaan.value"></span>
+        </div>
+      </div>
+
+    </ng-container>
+    <br />
+    <div class="canvas__chart">
+      <canvas id='canm' class='pA'></canvas>
+    </div>
+    <br />
+    <ng-container *ngIf="content">
+
+      <app-panchang-paanch-war [content]="content.tithi" type="tithi"></app-panchang-paanch-war>
+      <br />
+      <app-panchang-paanch-war [content]="content.war" type="war"></app-panchang-paanch-war>
+      <br />
+      <app-panchang-paanch-war [content]="content.nakshtra" type="nakshtra"></app-panchang-paanch-war>
+      <br />
+      <app-panchang-paanch-war [content]="content.yog" type="yog"></app-panchang-paanch-war>
+      <br />
+      <app-panchang-paanch-war [content]="content.karan" type="karan"></app-panchang-paanch-war>
+      <br />
+
+
+      <div class="table1">
+        <div class="row" *ngFor="let row of content.table1">
+          <ng-container *ngFor="let o of row">
+            <div [innerHTML]="o"></div>
+          </ng-container>
+        </div>
+      </div>
+      <br />
+      <div class="div__block">
+        <app-panchang-div-block [content]="content.divBlock.samvatsarNorth"></app-panchang-div-block>
+        <app-panchang-div-block [content]="content.divBlock.samvatsarSouth"></app-panchang-div-block>
+        <app-panchang-div-block [content]="content.divBlock.souramaasa"></app-panchang-div-block>
+        <app-panchang-div-block [content]="content.divBlock.sankranti"></app-panchang-div-block>
+        <app-panchang-div-block [content]="content.divBlock.chandramasa"></app-panchang-div-block>
+        <app-panchang-div-block [content]="content.divBlock.others"></app-panchang-div-block>
+        <app-panchang-div-block [content]="content.divBlock.suryoday"></app-panchang-div-block>
+        <app-panchang-div-block [content]="content.divBlock.maddhyay"></app-panchang-div-block>
+        <app-panchang-div-block [content]="content.divBlock.suryast"></app-panchang-div-block>
+        <app-panchang-div-block [content]="content.divBlock.aynansh"></app-panchang-div-block>
+        <app-panchang-div-block [content]="content.divBlock.dinmaan"></app-panchang-div-block>
+        <app-panchang-div-block [content]="content.divBlock.ratrimaan"></app-panchang-div-block>
+      </div>
+      <br />
+
+      <app-panchang-grah-table [content]="content.grahTable"></app-panchang-grah-table>
+      <br />
+      <app-panchang-planet-table [content]="content.planetTable"></app-panchang-planet-table>
+    </ng-container>
+    <br /><br /><br />
+  </ion-grid>
+  <app-panchang-city-modal #cityModal (onInit)="onCityInit($event)"
+    (close)="getSelectedCity($event)"></app-panchang-city-modal>
+</ion-content>

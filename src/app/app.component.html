@@ -1,0 +1,36 @@
+<ion-app>
+  <ion-split-pane contentId="main-content">
+    <ion-menu contentId="main-content" type="overlay" *ngIf="isSideMenuVisible">
+      <ion-content class="bg-orange">
+        <ion-card text-center class="hide-card">
+          <img src="assets/sandesh.jpeg" class="custom-avatar" />
+          <h2 class="name">पं. संदेश सु. कुलकर्णी</h2>
+          <h4 class="name">नवी मुंबई</h4>
+          <hr />
+        </ion-card>
+        <div class="color-black sidenav__content">
+          <ion-menu-toggle
+            auto-hide="false"
+            *ngFor="let p of appPages; let i = index"
+          >
+            <ion-item
+              class="menu-label"
+              lines="none"
+              detail="false"
+              (click)="onRedirect(p.url)"
+            >
+              <ion-icon class="font-30 color-black" [name]="p.name"></ion-icon>
+              &nbsp;&nbsp;
+              <label class="font-label color-black">{{ p.title }}</label>
+            </ion-item>
+          </ion-menu-toggle>
+        </div>
+      </ion-content>
+    </ion-menu>
+    <div *ngIf="!isNetAvailable" class="no__internet">
+      <img src="assets/no-internet.png" alt="no-internet" />
+      No Internet Connection
+    </div>
+    <ion-router-outlet id="main-content" aria-modal="true"></ion-router-outlet>
+  </ion-split-pane>
+</ion-app>

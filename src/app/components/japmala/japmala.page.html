@@ -1,0 +1,80 @@
+<ion-header [translucent]="true" class="orange__theme_header">
+  <ion-toolbar class="toolbar__header">
+    <ion-buttons slot="start">
+      <ion-menu-button class="color-black"></ion-menu-button>
+    </ion-buttons>
+    <ion-title class="title" size="large">Japmala</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="japmala__content japmala__background">
+  <ion-grid class="mt__64">
+    <ion-row>
+      <ion-col size="7">
+        <div class="mala__text">
+          Mala has <b>108</b> beads
+        </div>
+        <div class="counter">
+          <span class="title">Mala Count</span>
+          <span class="bead__count font-30 text">
+            {{display.mala_count}}
+          </span>
+        </div>
+        <div class="counter">
+          <span class="title">Bead Count</span>
+          <span class="bead__count font-30 text">
+            {{display.bead_count}}
+          </span>
+        </div>
+        <div class="reset" (click)="onResetClick()">
+          Reset
+        </div>
+      </ion-col>
+      <ion-col size="5">
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <swiper-container #swiper [modules]="swiperModules" slides-per-view="6" initial-slide="0" [loop]="true" [speed]="400"
+    [spaceBetween]="0" [longSwipes]="false" [longSwipesRatio]="0.5" [direction]="'vertical'" [allowSlidePrev]="false"
+    (init)="onSlideLoad($event)" (slidenexttransitionend)="onSlideNextEnd($event)">
+    <swiper-slide>
+      <span class="tie__img"></span>
+    </swiper-slide>
+    <swiper-slide>
+      <span class="tie__img"></span>
+    </swiper-slide>
+    <swiper-slide>
+      <span class="tie__img"></span>
+    </swiper-slide>
+    <swiper-slide>
+      <span class="tie__img"></span>
+    </swiper-slide>
+    <swiper-slide>
+      <span class="tie__img"></span>
+    </swiper-slide>
+    <swiper-slide>
+      <span class="tie__img"></span>
+    </swiper-slide>
+    <swiper-slide>
+      <span class="tie__img"></span>
+    </swiper-slide>
+    <swiper-slide>
+      <span class="tie__img"></span>
+    </swiper-slide>
+    <swiper-slide>
+      <span class="tie__img"></span>
+    </swiper-slide>
+    <swiper-slide>
+      <span class="tie__img"></span>
+    </swiper-slide>
+    <swiper-slide>
+      <span class="tie__img"></span>
+    </swiper-slide>
+    <swiper-slide>
+      <span class="tie__img"></span>
+    </swiper-slide>
+    <swiper-slide>
+      <span class="tie__img"></span>
+    </swiper-slide>
+  </swiper-container>
+</ion-content>

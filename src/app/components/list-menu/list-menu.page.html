@@ -1,0 +1,117 @@
+<ion-header [translucent]="true" class="orange__theme_header">
+  <ion-toolbar class="toolbar__header">
+    <ion-buttons slot="start">
+      <ion-menu-button class="color-black"></ion-menu-button>
+    </ion-buttons>
+    <ion-title class="title" size="large">List Of Menus</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="background-white list__menu">
+  <!-- <ion-content [fullscreen]="true" class="background-white list__menu"> -->
+  <ion-grid class="mt-48 mb__66">
+    <div style="text-align: center;">
+      <img src="assets/logo.png" style="height: 150px; width: 200px;" />
+    </div>
+    <div class="title">
+      <span>पूजा साहित्य यादी</span>
+    </div>
+    <div class="mt-48" style="padding: 0 5px;">
+      <form [formGroup]="listMenuForm" autocomplete="off" area-autocomplete="off">
+        <ion-row>
+          <ion-col size="12">
+            <mat-form-field appearance="outline" class="color-black">
+              <mat-label>Guruji Name</mat-label>
+              <input matInput formControlName="name" />
+            </mat-form-field>
+          </ion-col>
+          <ion-col size="12">
+            <mat-form-field appearance="outline" class="color-black">
+              <mat-label>Mobile No</mat-label>
+              <input matInput formControlName="mobile" maxlength="10" />
+            </mat-form-field>
+          </ion-col>
+        </ion-row>
+        <div>
+          <ng-container formArrayName="details">
+            <ng-container *ngFor="let item of detailsControls['controls']; let i=index; trackBy:identify">
+              <ng-container [formGroupName]="i">
+                <ion-row>
+                  <ion-col size="5" class="bb__col title__valign fs__18">
+                    <mat-checkbox [id]="'chk_'+ i" class="color-black" formControlName="checked">
+                      {{item.value.name}}
+                    </mat-checkbox>
+                  </ion-col>
+                  <ion-col size="7" class="bb__col space__between">
+                    <div class="input_with_label" style="width: 30%;">
+                      <span class="color-black span_label">Gm</span>
+                      <input [id]="'inp_gm_'+ i" type="text" formControlName="gm" class="color-black input_control" />
+                    </div>
+                    <div class="input_with_label" style="width: 30%;">
+                      <span class="color-black span_label">Kg</span>
+                      <input [id]="'inp_kg_'+ i" type="text" formControlName="kg" class="color-black input_control" />
+                    </div>
+                    <div class="input_with_label" style="width: 40%;">
+                      <span class="color-black span_label">Quantity</span>
+                      <input [id]="'inp_qty_'+ i" type="text" formControlName="qty" class="color-black input_control" />
+                    </div>
+
+
+                    <!-- <mat-form-field [id]="'mat_gm_'+ i" appearance="outline" class="color-black" style="width: 30%;">
+                      <mat-label>Gm</mat-label>
+                      <input matInput [id]="'inp_gm_'+ i" formControlName="gm" />
+                    </mat-form-field>
+                    <mat-form-field [id]="'mat_kg_'+ i" appearance="outline" class="color-black" style="width: 30%;">
+                      <mat-label>Kg</mat-label>
+                      <input matInput [id]="'inp_kg_'+ i" formControlName="kg" />
+                    </mat-form-field>
+                    <mat-form-field [id]="'mat_qty_'+ i" appearance="outline" class="color-black" style="width: 40%;">
+                      <mat-label>Quantity</mat-label>
+                      <input matInput [id]="'inp_qty_'+ i" formControlName="qty" />
+                    </mat-form-field> -->
+                  </ion-col>
+                </ion-row>
+              </ng-container>
+            </ng-container>
+          </ng-container>
+        </div>
+
+      </form>
+      <!-- <div [@listAnimation]="formList.length">
+        <ion-row *ngFor="let item of formList; trackBy:identify">
+          <ion-col size="5" class="bb__col title__valign fs__18">
+            <mat-checkbox class="color-black" [(ngModel)]="item.checked">
+              {{item.name}}
+            </mat-checkbox>
+          </ion-col>
+          <ion-col size="7" class="bb__col space__between">
+            <mat-form-field appearance="outline" class="color-black" style="width: 30%;">
+              <mat-label>Gm</mat-label>
+              <input matInput [(ngModel)]="item.gm" />
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="color-black" style="width: 30%;">
+              <mat-label>Kg</mat-label>
+              <input matInput [(ngModel)]="item.kg" />
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="color-black" style="width: 40%;">
+              <mat-label>Quantity</mat-label>
+              <input matInput [(ngModel)]="item.qty" />
+            </mat-form-field>
+          </ion-col>
+        </ion-row>
+      </div> -->
+      <ion-row>
+        <ion-col size="12" class="ion-no-padding">
+          &nbsp;
+        </ion-col>
+        <ion-col size="12" class="ion-no-padding">
+          &nbsp;
+        </ion-col>
+      </ion-row>
+    </div>
+  </ion-grid>
+  <div class="bottom__btn width-100">
+    <button class="width-100 color-black  bg-orange button__height_50" [disabled]="listMenuForm.invalid"
+      mat-raised-button type="button" (click)="onSubmit()">{{buttonConfig.text}}</button>
+  </div>
+</ion-content>

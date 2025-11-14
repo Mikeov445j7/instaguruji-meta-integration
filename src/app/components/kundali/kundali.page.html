@@ -1,0 +1,161 @@
+<ion-header [translucent]="true" class="orange__theme_header">
+  <ion-toolbar class="toolbar__header">
+    <ion-buttons slot="start">
+      <ion-menu-button class="color-black"></ion-menu-button>
+    </ion-buttons>
+    <ion-title class="title" size="large">Kundali Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="background-white">
+  <ion-grid class="mt-48 mb__66 kundali__details">
+    <div>
+      <div class="first__item">
+        <p class="mb__0">
+          Samarth Sadguru Pratishthan - Instaguruji
+        </p>
+        <p class="mt__0 mb__0">(www.instaguruji.in)</p>
+        <p class="mb__0">
+          Payment for Google pay, Phone Pe or Paytm
+        </p>
+        <p class="mt__0">90229 43590</p>
+      </div>
+      <div class="second__item">
+        <p class="mb__0">Also Send the Payment receipt/Screenshot for the record</p>
+        <p class="mt__0 mb__0"> On my WhatsApp 9022943590 </p>
+        <p>(Only For Kundali)</p>
+      </div>
+      <div class="third__item">
+        <p>- Normal Basic Kundali:- 299/- Only</p>
+        <p>- Premium Personalized Kundali Charges:- 499/- Only. </p>
+        <p>- Match making (kundli milan) Report :- 251/- Only </p>
+        <p>- Marriage Biodata - 351/- Only</p>
+        <p>- Business/Personal name suggestion + Kundli :- 499/- Only </p>
+        <p>- Phone Consultation :- 751/- Only </p>
+      </div>
+      <br />
+      <br />
+      <div class="fourth__item">
+        <p>These are some features of our Kundali:- </p>
+        <p>- Whole Life prediction </p>
+        <p>- Career marriage relationship Child health, financial, varshphal etc..</p>
+        <p>- 250 + Pages Colourful format</p>
+        <p>- Bio-Rhythms </p>
+        <p>- Stone recommendation</p>
+        <p>- Rudraksha recommendations </p>
+        <p>- Numerology</p>
+        <p>- Prediction of your whole life. </p>
+        <p>- Lal kitab remedies </p>
+        <p>- Accurate predictions </p>
+        <p>- Favourable Points</p>
+      </div>
+
+      <div class="fifth__item">
+        <p>Reports will be delivered within 24 hr via Whatsapp or email PDF.</p>
+        <p>Please send following details after payment:</p>
+      </div>
+
+      <div class="form__item">
+        <form [formGroup]="kundaliForm" autocomplete="off" area-autocomplete="off">
+          <ion-row>
+            <ion-col size="12">
+              <mat-form-field appearance="outline" class="color-black">
+                <mat-label>Name(नाव)</mat-label>
+                <input matInput formControlName="name" />
+              </mat-form-field>
+            </ion-col>
+            <ion-col size="12">
+              <mat-form-field appearance="outline" class="color-black">
+                <mat-label>Mobile No.(मोबाईल नं.)</mat-label>
+                <input matInput formControlName="mobile" maxlength="10" />
+              </mat-form-field>
+            </ion-col>
+            <ion-col size="12">
+              <mat-radio-group aria-label="Select an option" formControlName="gender">
+                <mat-radio-button class="color-black" style="margin-right: 15px;" value="Male">Male</mat-radio-button>
+                <mat-radio-button class="color-black" value="Female">Female</mat-radio-button>
+              </mat-radio-group>
+            </ion-col>
+            <ion-col size="12">
+              <mat-form-field appearance="outline" class="color-black">
+                <mat-label>Date of Birth(जन्म तारीख)</mat-label>
+                <input matInput [matDatepicker]="dob" formControlName="dob" [disabled]="true" />
+                <mat-datepicker-toggle matSuffix [for]="dob"></mat-datepicker-toggle>
+                <mat-datepicker #dob [disabled]="false"></mat-datepicker>
+              </mat-form-field>
+            </ion-col>
+            <ion-col size="12">
+              <div class="ion__time">
+                <label class="ion__time_label color-black">Time: </label>
+                <div class="ion__time_control">
+                  <div id="open-modal" class="ion__time_control_populate color-black">
+                    <div class="ion__time_control_populate--text color-black">{{kundaliForm.value.tob}}</div>
+                    <ion-icon class="font-30 color-black ion__time_control_populate--icon" slot="end" name="time"
+                      ios="ios-settings" id="open-modal">
+                    </ion-icon>
+                  </div>
+                  <ion-modal class="ion-modal" trigger="open-modal">
+                    <ng-template>
+                      <ion-content class="background-white">
+                        <ion-datetime presentation="time" displayFormat="hh:mm a" [showDefaultButtons]="true"
+                          doneText="Ok" formControlName="tob" cancelText="Cancel"></ion-datetime>
+                      </ion-content>
+                    </ng-template>
+                  </ion-modal>
+                </div>
+              </div>
+            </ion-col>
+            <ion-col size="12">
+              <mat-form-field appearance="outline" class="color-black">
+                <mat-label>Birth Place(जन्म ठिकाण)</mat-label>
+                <input matInput formControlName="pob" />
+              </mat-form-field>
+            </ion-col>
+            <ion-col size="12">
+              <mat-form-field appearance="outline" class="color-black">
+                <mat-label>Father Name(वडील)</mat-label>
+                <input matInput formControlName="fatherName" />
+              </mat-form-field>
+            </ion-col>
+            <ion-col size="12">
+              <mat-form-field appearance="outline" class="color-black">
+                <mat-label>Mother Name(आई)</mat-label>
+                <input matInput formControlName="motherName" />
+              </mat-form-field>
+            </ion-col>
+            <ion-col size="12">
+              <mat-form-field appearance="outline" class="color-black background-white">
+                <mat-label>Kundali Language</mat-label>
+                <mat-select formControlName="language">
+                  <mat-option value="English">English</mat-option>
+                  <mat-option value="Hindi">Hindi</mat-option>
+                  <mat-option value="Marathi">Marathi</mat-option>
+                  <mat-option value="Gujarati">Gujarati</mat-option>
+                  <mat-option value="Telgu">Telgu</mat-option>
+                  <mat-option value="Tamil">Tamil</mat-option>
+                  <mat-option value="Kannad">Kannad</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </ion-col>
+            <ion-col size="12">
+              &nbsp;
+              <!-- <button [disabled]="kundaliForm.invalid||buttonConfig.disable"
+                class="width-100 color-black button__height_50 bg-orange" mat-raised-button type="button"
+                (click)="onSubmit()">{{buttonConfig.text}}</button> -->
+            </ion-col>
+            <ion-col size="12" class="ion-no-padding">
+              &nbsp;
+            </ion-col>
+          </ion-row>
+        </form>
+      </div>
+
+    </div>
+
+  </ion-grid>
+  <div class="bottom__btn width-100">
+    <button [disabled]="kundaliForm.invalid||buttonConfig.disable"
+      class="width-100 color-black button__height_50 bg-orange" mat-raised-button type="button"
+      (click)="onSubmit()">{{buttonConfig.text}}</button>
+  </div>
+</ion-content>

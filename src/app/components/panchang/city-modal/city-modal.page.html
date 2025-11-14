@@ -1,0 +1,44 @@
+<ion-modal [isOpen]="isModalOpen" (willDismiss)="onWillDismiss($event)">
+  <ng-template>
+    <ion-header class="background-white">
+      <ion-toolbar class="background-white">
+        <ion-buttons slot="start">
+          <ion-button (click)="cancel()" class="color-black">Cancel</ion-button>
+        </ion-buttons>
+        <ion-buttons slot="end">
+          <ion-button (click)="confirm()" [strong]="true" class="color-black">Confirm</ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+      <ion-toolbar class="background-white">
+        <ion-row>
+          <ion-col size="12">
+            <mat-form-field appearance="outline" class="color-black">
+              <input matInput [formControl]="nameFormControl" placeholder="Search City" />
+            </mat-form-field>
+          </ion-col>
+        </ion-row>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="background-white div__city_container">
+      <ion-grid class="mb__66">
+        <mat-radio-group [formControl]="selectedFormControl">
+          <ion-row>
+            <ion-col *ngFor="let city of FilteredCitiesList" size="12"
+              class="bb__col title__valign fs__18 div__city_container_items">
+              <ng-container *ngIf="city?.id;else defaultRadio">
+                <mat-radio-button class="color-black" [value]="city.id">
+                  {{city.name}}
+                </mat-radio-button>
+              </ng-container>
+              <ng-template #defaultRadio>
+                <mat-radio-button class="color-black" [value]="city.name">
+                  {{city.name}}
+                </mat-radio-button>
+              </ng-template>
+            </ion-col>
+          </ion-row>
+        </mat-radio-group>
+      </ion-grid>
+    </ion-content>
+  </ng-template>
+</ion-modal>

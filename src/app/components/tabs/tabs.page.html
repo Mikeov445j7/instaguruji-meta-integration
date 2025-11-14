@@ -1,0 +1,54 @@
+<div #menuExplorer tabindex="-1" class="scale-in-bottom menu__container" (focusout)="onFocusout($event)">
+  <div class="flex-row-item">
+    <ion-icon class="font-30 icon" name="image"></ion-icon>
+    <div class="text">Gallery</div>
+  </div>
+  <div class="flex-row-item">
+    <ion-icon class="font-30 icon" name="flower"></ion-icon>
+    <div class="text">Kundali</div>
+  </div>
+  <div class="flex-row-item">
+    <ion-icon class="font-30 icon" name="list"></ion-icon>
+    <div class="text">List Of Menus</div>
+  </div>
+  <div class="flex-row-item">
+    <ion-icon class="font-30 icon" name="card"></ion-icon>
+    <div class="text">Payment</div>
+  </div>
+  <div class="flex-row-item">
+    <ion-icon class="font-30 icon" name="compass"></ion-icon>
+    <div class="text">Compass</div>
+  </div>
+  <div class="flex-row-item">
+    <ion-icon class="font-30 icon" name="hand-right"></ion-icon>
+    <div class="text">Panchang</div>
+  </div>
+  <div class="flex-row-item">
+    <ion-icon class="font-30 icon" name="infinite"></ion-icon>
+    <div class="text">Japmala</div>
+  </div>
+</div>
+<ion-tabs class="{{isContentPage? 'cream__theme':'orange__theme'}}">
+  <ion-tab-bar slot="bottom" color="purple">
+    <ion-tab-button tab="category">
+      <ion-icon class="font-30" name="Home"></ion-icon>
+      <span>Home</span>
+    </ion-tab-button>
+
+    <ion-tab-button tab="order-pooja">
+      <ion-icon class="font-30" name="cart"></ion-icon>
+      <span>Order Pooja</span>
+    </ion-tab-button>
+
+    <ion-tab-button tab="tab3">
+      <ion-icon class="font-30" name="information-circle"></ion-icon>
+      <span> About</span>
+    </ion-tab-button>
+
+    <ion-tab-button (click)="onMenuClick($event)">
+      <ion-icon class="font-30" name="menu"></ion-icon>
+      <span>Menu</span>
+    </ion-tab-button>
+
+  </ion-tab-bar>
+</ion-tabs>

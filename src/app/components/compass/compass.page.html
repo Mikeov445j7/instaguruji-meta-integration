@@ -1,0 +1,23 @@
+<ion-header [translucent]="true" class="orange__theme_header">
+  <ion-toolbar class="toolbar__header">
+    <ion-buttons slot="start">
+      <ion-menu-button class="color-black"></ion-menu-button>
+    </ion-buttons>
+    <ion-title class="title" size="large">Compass</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="compass__background">
+  <ion-grid class="compass__wrapper">
+    <div class="compass">
+      <div class="arrow"></div>
+      <div class="compass-circle"></div>
+      <div class="my-point"></div>
+    </div>
+    <button class="start-btn">Start compass</button>
+  </ion-grid>
+  <div *ngIf="isVisibleLocation" class="location" (click)="onShareLocation()">
+    <div class="pin"></div>
+    <div class="pulse"></div>
+  </div>
+</ion-content>
